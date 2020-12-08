@@ -78,7 +78,8 @@
                        "#!/bin/bash -xe\n",
                        "yum install -y nginx\n",
 		       "yum install -y git\n",
-		       "git clone https://github.com/Jaibw/FrozenYogurtShop.git ./usr/share/nginx/html/ \n",
+		       "rm -rvf /usr/share/nginx/html/*\n",
+		       "git clone https://github.com/Jaibw/FrozenYogurtShop.git /usr/share/nginx/html/\n",
                        "service nginx start\n"
         ]]}}
       }
