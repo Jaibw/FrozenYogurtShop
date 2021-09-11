@@ -5,6 +5,13 @@ steps:
 
 #step 2
 - name: 'gcr.io/cloud-builders/kubectl'
+  args: ['apply', '-f', 'k8s/']
+  env:
+  - 'CLOUDSDK_COMPUTE_ZONE=us-central1'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=dev-01'
+
+#step 3
+- name: 'gcr.io/cloud-builders/kubectl'
   args: [
    'set', 
    'image', 
@@ -12,5 +19,10 @@ steps:
    'hello-app', 
    'frozenyogurtshop=asia-east1-docker.pkg.dev/$PROJECT_ID/webapp/frozenyogurtshop:$BRANCH_NAME-$COMMIT_SHA'
   ]
-images:
-- 'asia-east1-docker.pkg.dev/$PROJECT_ID/webapp/frozenyogurtshop:$BRANCH_NAME-$COMMIT_SHA'
+  env:
+  - 'CLOUDSDK_COMPUTE_ZONE=us-central1'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=dev-01'
+images: [
+   'asia-east1-docker.pkg.dev/$PROJECT_ID/webapp/frozenyogurtshop:$BRANCH_NAME-$COMMIT_SHA',
+   'asia-east1-docker.pkg.dev/$PROJECT_ID/webapp/frozenyogurtshop:latest'
+  ]
