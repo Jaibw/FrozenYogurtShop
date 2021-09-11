@@ -3,3 +3,17 @@ steps:
   args: [ 'build', '-t', 'asia-east1-docker.pkg.dev/$PROJECT_ID/webapp/frozenyogurtshop:$BRANCH_NAME-$COMMIT_SHA', '.' ]
 images:
 - 'asia-east1-docker.pkg.dev/$PROJECT_ID/webapp/frozenyogurtshop:$BRANCH_NAME-$COMMIT_SHA'
+
+- name: 'gcr.io/cloud-builders/kubectl'
+  args: [
+   'set', 
+   'image', 
+   'deployment', 
+   'hello-app', 
+   'frozenyogurtshop=asia-east1-docker.pkg.dev/$PROJECT_ID/webapp/frozenyogurtshop:$BRANCH_NAME-$COMMIT_SHA'
+  ]
+  
+images: [
+   'asia-east1-docker.pkg.dev/$PROJECT_ID/webapp/frozenyogurtshop:$BRANCH_NAME-$COMMIT_SHA',
+   'asia-east1-docker.pkg.dev/$PROJECT_ID/webapp/frozenyogurtshop:latest'
+  ]
