@@ -1,5 +1,5 @@
 steps:
 - name: 'gcr.io/cloud-builders/docker'
-  args: [ 'build', '-t', 'asia-east1-docker.pkg.dev/$PROJECT_ID/webapp/frozenyogurtshop:2', '.' ]
+  args: [ 'build', '-t', 'asia-east1-docker.pkg.dev/$PROJECT_ID/webapp/frozenyogurtshop:$BRANCH_NAME-$COMMIT_SHA', '.' ]
 images:
-- 'asia-east1-docker.pkg.dev/$PROJECT_ID/webapp/frozenyogurtshop:2'
+- 'asia-east1-docker.pkg.dev/$PROJECT_ID/webapp/frozenyogurtshop:$BRANCH_NAME-$COMMIT_SHA'
