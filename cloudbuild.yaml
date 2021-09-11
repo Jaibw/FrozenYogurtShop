@@ -5,13 +5,6 @@ steps:
 
 #step 2
 - name: 'gcr.io/cloud-builders/kubectl'
-  args: ['apply', '-f', 'k8s/']
-  env:
-  - 'CLOUDSDK_COMPUTE_ZONE=us-central1'
-  - 'CLOUDSDK_CONTAINER_CLUSTER=dev-01'
-
-#step 3
-- name: 'gcr.io/cloud-builders/kubectl'
   args: [
    'set', 
    'image', 
