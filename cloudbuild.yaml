@@ -16,6 +16,5 @@ steps:
   - 'CLOUDSDK_COMPUTE_ZONE=us-central1'
   - 'CLOUDSDK_CONTAINER_CLUSTER=dev-01'
 images: [
-   'asia-east1-docker.pkg.dev/$PROJECT_ID/webapp/frozenyogurtshop:$BRANCH_NAME-$COMMIT_SHA',
-   'asia-east1-docker.pkg.dev/$PROJECT_ID/webapp/frozenyogurtshop:latest'
+   'asia-east1-docker.pkg.dev/$PROJECT_ID/webapp/frozenyogurtshop:$BRANCH_NAME-$COMMIT_SHA'
   ]
