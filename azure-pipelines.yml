@@ -27,3 +27,8 @@ stages:
         dockerfile: '$(Build.SourcesDirectory)/Dockerfile'
         tags: |
           $(tag)
+    - task: AzureWebAppContainer@1
+      inputs:
+        appName: devops-demo-20-SEP-2021
+        azureSubscription: 'Azure subscription 1'
+        imageName: jaibw/frozenyogurtshop:1
