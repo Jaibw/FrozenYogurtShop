@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frozenyogurtshop
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: frozenyogurtshop
+  template:
+    metadata:
+      name: frozenyogurtshop
+      labels:
+        app: frozenyogurtshop
+    spec:
+      containers:
+      - name: ovs
+        image: jaibw/frozenyogurtshop 
+        ports:
+        - containerPort: 80 
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: frozenyogurtshop
+spec:
+  type: NodePort
+  ports:
+  - targetPort: 80 
+    port: 80
+  selector:
+    app: frozenyogurtshop
