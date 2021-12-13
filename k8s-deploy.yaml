@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: frozenyogurtshop
 spec:
-  replicas: 1
+  replicas: 5
   selector:
     matchLabels:
       app: frozenyogurtshop
