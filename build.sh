@@ -1,6 +1,6 @@
 #!/bin/bash
 DOCKERID=training122021
-PROJECT=website-jai
+PROJECT=website-<name>
 IMAGE=$DOCKERID/$PROJECT:$BUILD_NUMBER
 
 docker build -t $IMAGE .
