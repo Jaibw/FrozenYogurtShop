@@ -1,5 +1,5 @@
 ---
-- hosts: all
+- hosts: "{{ target }}"
   vars:
     - htmldir: /var/www/html
     - gitrepo: https://github.com/Jaibw/FrozenYogurtShop.git
