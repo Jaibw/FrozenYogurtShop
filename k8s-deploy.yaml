@@ -1,17 +1,17 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: frozenyogurtshop
+  name: frozenyogurtshop-username
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: frozenyogurtshop
+      app: frozenyogurtshop-username
   template:
     metadata:
-      name: frozenyogurtshop
+      name: frozenyogurtshop-username
       labels:
-        app: frozenyogurtshop
+        app: frozenyogurtshop-username
     spec:
       containers:
       - name: ovs
@@ -23,11 +23,11 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: frozenyogurtshop
+  name: frozenyogurtshop-username
 spec:
   type: NodePort
   ports:
   - targetPort: 80 
     port: 80
   selector:
-    app: frozenyogurtshop
+    app: frozenyogurtshop-username
