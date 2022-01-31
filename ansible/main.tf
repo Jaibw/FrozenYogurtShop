@@ -11,7 +11,7 @@ resource "aws_instance" "testserver" {
     Name = "Website Demo"
   }
   provisioner "local-exec" {
-    command = "ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -u ubuntu -i '${self.public_ip},' webserver.yaml && ansible-playbook -u ubuntu -i '${self.public_ip},' deploy.yaml"
+    command = "sleep 120 && ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -u ubuntu -i '${self.public_ip},' webserver.yaml && ansible-playbook -u ubuntu -i '${self.public_ip},' deploy.yaml"
   }
 }
 
