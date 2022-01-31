@@ -1,5 +1,5 @@
 ---
-- hosts: "{{ target }}"
+- hosts: "all"
   tasks:
     - name: install nginx
       become: yes
