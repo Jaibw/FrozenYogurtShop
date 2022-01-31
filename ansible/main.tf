@@ -8,7 +8,7 @@ resource "aws_instance" "testserver" {
   key_name = "jai-wsl2-key"
   security_groups = ["launch-wizard-174"]
   tags = {
-    Name = "Website Demo"
+    Name = "testserver"
   }
   provisioner "local-exec" {
     command = "sleep 120 && ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -u ubuntu -i '${self.public_ip},' webserver.yaml && ansible-playbook -u ubuntu -i '${self.public_ip},' deploy.yaml"
