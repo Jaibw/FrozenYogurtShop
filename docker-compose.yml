@@ -1,0 +1,10 @@
+version: '2.0'
+services:
+  web:
+    build: .
+    ports:
+    - "80:80"
+    links:
+    - redis
+  redis:
+    image: redis
