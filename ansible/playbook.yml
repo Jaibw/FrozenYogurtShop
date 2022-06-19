@@ -1,0 +1,29 @@
+---
+- hosts: "webserver"
+  become: yes 
+  vars: 
+    - htmldir: /var/www/html
+    - gitrepo: https://github.com/Jaibw/FrozenYogurtShop.git
+  tasks:
+    - name: install nginx
+      apt: name=nginx state=latest
+    - name: start nginx service
+      service:
+        name: nginx
+        state: started
+    - name: clean default html files
+      file:
+        state: absent
+        path: "{{ htmldir }}"
+      notify:
+        - restart nginx 
+    - name: copy the content from git
+      git:
+        force: yes
+        repo: "{{ gitrepo }}"
+        dest: "{{ htmldir }}"
+  handlers:
+    - name: restart nginx
+      service:
+        name: nginx
+        state: restarted
