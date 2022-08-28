@@ -17,3 +17,5 @@ spec:
       containers:
       - name: web
         image: 685421549691.dkr.ecr.us-west-1.amazonaws.com/website:latest
+      imagePullSecrets:
+      - name: regcred
