@@ -16,4 +16,4 @@ spec:
     spec:
       containers:
       - name: web
-        image: nginx
+        image: 685421549691.dkr.ecr.us-west-1.amazonaws.com/website:latest
