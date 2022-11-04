@@ -15,8 +15,7 @@ spec:
     spec:
       containers:
       - name: ovs
-        imagePullPolicy: Never
-        image: username
+        image: jaibw/frozenyogurtshop
         ports:
         - containerPort: 80 
 
