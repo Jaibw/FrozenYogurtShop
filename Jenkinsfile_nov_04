@@ -1,0 +1,21 @@
+pipeline {
+    agent any
+    stages {
+        stage('SCM Pull') {
+          steps {
+                git 'https://github.com/Jaibw/FrozenYogurtShop.git'
+          }
+        }
+        stage('Build') {
+            steps {                
+                sh "docker build -t ${env.BUILD_TAG} ."
+            }
+        }
+        stage('Test') {
+            steps {                
+                sh "docker images"
+            }
+        }
+      
+    }
+}
