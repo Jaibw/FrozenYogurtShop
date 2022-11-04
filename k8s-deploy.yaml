@@ -18,6 +18,7 @@ spec:
         image: username
         ports:
         - containerPort: 80 
+      imagePullPolicy: Never
 
 ---
 apiVersion: v1
